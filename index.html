@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>시작이 두려운 완벽주의자를 위한 투두리스트</title>
+<title>게으른 완벽주의자를 위한 투두리스트</title>
 <style>
 /* ═══════════════════════════════════════════════════════
    RESET & TOKENS
@@ -586,8 +586,9 @@ const guideModalHTML=()=>
   +'<div class="m-body">'
     +'<div class="guide-hero">'
       +'<p style="font-size:.78rem;color:var(--muted);text-align:center;line-height:1.75;max-width:280px">'
+        +'일단 엉망으로 시작하세요.<br>'
         +'완벽하게 하려는 불안감이 당신을 멈추게 둔다면,<br>'
-        +'엉망이라도 일단 시작해 보세요.<br>'
+        +'대충이라도 일단 시작해 보세요.<br>'
         +'집중을 방해하는 완벽에 대한 강박과 잡생각들은<br>'
         +'\'잡생각 보관함\'에 넣어버리세요.'
       +'</p>'
@@ -595,19 +596,23 @@ const guideModalHTML=()=>
     +'<div class="guide-steps">'
       +'<div class="guide-step"><div class="guide-step-ico g">'+ico.plus+'</div>'
         +'<div class="guide-step-txt"><h3>오늘 꼭 할 일을 왼쪽에</h3>'
-          +'<p>메인으로 할 일엔 오늘 반드시 해야 할 핵심 항목만 담아요.</p>'
+          +'<p>메인 약봉투엔 오늘 반드시 해야 할 핵심 항목만 담아요.</p>'
         +'</div></div>'
       +'<div class="guide-step"><div class="guide-step-ico o">'+ico.cursor+'</div>'
         +'<div class="guide-step-txt"><h3>떠오르는 잡생각은 오른쪽으로</h3>'
-          +'<p>작업 중 갑자기 떠오른 아이디어나 당장 하지 않아도 되는 업무는 오른쪽 잡생각함에 드래그 해 격리하세요.</p>'
+          +'<p>작업 중 갑자기 떠오른 아이디어나 부가 업무는 오른쪽 잡생각함에 드래그 해 격리하세요.</p>'
+        +'</div></div>'
+      +'<div class="guide-step"><div class="guide-step-ico b">'+ico.eyeOff+'</div>'
+        +'<div class="guide-step-txt"><h3>그래도 신경 쓰인다면, 숨겨두세요</h3>'
+          +'<p>잡생각이 자꾸 눈에 밟힌다면 \'숨기기\' 버튼을 눌러보세요. 지금 할 일을 먼저 끝낸 뒤 다시 살펴봐도 늦지 않아요.</p>'
         +'</div></div>'
       +'<div class="guide-step"><div class="guide-step-ico b">'+ico.move+'</div>'
-        +'<div class="guide-step-txt"><h3>드래그 앤 드롭으로 이동</h3>' 
-          +'<p>알약을 끌어다 반대편 보관함에 놓으면 즉시 이동돼요.<br>우선순위가 바뀌어도 OK.</p>'
+        +'<div class="guide-step-txt"><h3>드래그 앤 드롭으로 이동</h3>'
+          +'<p>알약을 끌어다 반대편 보관함에 놓으면 즉시 이동돼요. 우선순위가 바뀌어도 OK.</p>'
         +'</div></div>'
       +'<div class="guide-step"><div class="guide-step-ico p">'+ico.check14+'</div>'
         +'<div class="guide-step-txt"><h3>알약 탭 → 상세 모달</h3>'
-          +'<p>알약을 탭하면 전체 텍스트 확인, 이동, 삭제가 가능해요.<br>완료는 체크박스로!</p>'
+          +'<p>알약을 탭하면 전체 텍스트 확인, 이동, 삭제가 가능해요. 완료는 체크박스로!</p>'
         +'</div></div>'
     +'</div>'
     +'<button class="guide-close-btn" data-a="close-guide">알겠어요!</button>'
@@ -737,7 +742,7 @@ const showTearBadge=bid=>{
   const el=document.createElement('div');
   el.id='badge-left';
   el.className='badge-overlay';
-  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-g">엉망진창 완료 ✓</span></span>';
+  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-g">얼렁뚱땅 완료 ✓</span></span>';
   card.appendChild(el);
 };
 const removeTearBadge=_bid=>{
@@ -753,7 +758,7 @@ const showBothBadge=bid=>{
   const el=document.createElement('div');
   el.id='badge-both';
   el.className='badge-overlay';
-  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-p">진짜 엉망진창 완료 🎉</span></span>';
+  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-p">진짜 얼렁뚱땅 완료 🎉</span></span>';
   card.appendChild(el);
   /* 미니 폭죽 — 오른쪽 카드 내부 */
   const c=document.getElementById('fw-'+bid);
