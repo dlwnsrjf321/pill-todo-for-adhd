@@ -733,7 +733,7 @@ const removeBadgeById=id=>{
   }
 };
 
-/* Left 완료 — "얼렁뚱땅 완료 ✓" (좌측 카드 정중앙, absolute) */
+/* Left 완료 — "엉망진창 완료 ✓" (좌측 카드 정중앙, absolute) */
 const showTearBadge=bid=>{
   const card=document.querySelector('.card[data-zone="bag"][data-bid="'+bid+'"]');
   if(!card)return;
@@ -741,14 +741,14 @@ const showTearBadge=bid=>{
   const el=document.createElement('div');
   el.id='badge-left';
   el.className='badge-overlay';
-  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-g">얼렁뚱땅 완료 ✓</span></span>';
+  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-g">엉망진창 완료 ✓</span></span>';
   card.appendChild(el);
 };
 const removeTearBadge=_bid=>{
   removeBadgeById('badge-left');
 };
 
-/* Both 완료 — "진짜 얼렁뚱땅 완료 🎉" (우측 카드 정중앙, absolute) + 미니 폭죽 */
+/* Both 완료 — "진짜 엉망진창 완료 🎉" (우측 카드 정중앙, absolute) + 미니 폭죽 */
 const MFWC=['#ec4899','#f97316','#3b82f6','#22c55e','#eab308','#a855f7','#06b6d4','#f43f5e','#facc15','#34d399','#fb7185','#60a5fa'];
 const showBothBadge=bid=>{
   const card=document.querySelector('.card[data-zone="bottle"][data-bid="'+bid+'"]');
@@ -757,7 +757,7 @@ const showBothBadge=bid=>{
   const el=document.createElement('div');
   el.id='badge-both';
   el.className='badge-overlay';
-  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-p">진짜 얼렁뚱땅 완료 🎉</span></span>';
+  el.innerHTML='<span class="badge-inner-anim"><span class="badge-pill badge-pill-p">진짜 엉망진창 완료 🎉</span></span>';
   card.appendChild(el);
   /* 미니 폭죽 — 오른쪽 카드 내부 */
   const c=document.getElementById('fw-'+bid);
@@ -823,7 +823,7 @@ const doComplete=(bid,pid,side)=>{
   const nR = b.tablets.length  > 0 && b.tablets.every(p  => p.completed);  /* 우측 전체 완료 */
   const nB = nL && nR;  /* 양쪽 모두 완료 (엄격 조건) */
 
-  /* 좌측 완료 → "얼렁뚱땅 완료 ✓" */
+  /* 좌측 완료 → "엉망진창 완료 ✓" */
   if(nL && !pL0){
     S.tearing=bid;
     clearTimeout(S.tearTimer);
@@ -838,7 +838,7 @@ const doComplete=(bid,pid,side)=>{
     removeTearBadge(bid);
   }
 
-  /* 양쪽 완료 (좌측 AND 우측 모두) → "진짜 얼렁뚱땅 완료 🎉" */
+  /* 양쪽 완료 (좌측 AND 우측 모두) → "진짜 엉망진창 완료 🎉" */
   if(nB && !pB0){
     showBothBadge(bid);
     clearTimeout(S.bothTimer);
